@@ -31,10 +31,12 @@ def Ratio(pmf1, pmf2):
     return [timing1[i]/timing2[i] for i in range(len(timing1))]
 
 
+pmf_live_births = stats.MakePmfFromList(preg_lengths(live_births))
+pmf_first_births = stats.MakePmfFromList(preg_lengths(first_births))
+pmf_other_births = stats.MakePmfFromList(preg_lengths(other_births))
+
+
 if __name__ == "__main__":
-    pmf_live_births = stats.MakePmfFromList(preg_lengths(live_births))
-    pmf_first_births = stats.MakePmfFromList(preg_lengths(first_births))
-    pmf_other_births = stats.MakePmfFromList(preg_lengths(other_births))
     print Timing(pmf_live_births)
     print Timing(pmf_first_births)
     print Ratio(pmf_first_births, pmf_live_births)
